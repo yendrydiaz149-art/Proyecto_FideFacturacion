@@ -1,4 +1,4 @@
-package negocio;
+package bll;
 
 public class Cliente {
     private String id;
@@ -22,4 +22,5 @@ public class Cliente {
     public void setTelefono(String telefono) { this.telefono = telefono; }
     public void setCorreo(String correo) { this.correo = correo; }
 }
+
 
