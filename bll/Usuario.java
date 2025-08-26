@@ -1,4 +1,4 @@
-package negocio;
+package bll;
 
 public class Usuario {
     private String id;
@@ -26,4 +26,5 @@ public class Usuario {
     public void setRol(String rol) { this.rol = rol; }
     public void setContrasena(String contrasena) { this.contrasena = contrasena; }
 }
+
 
