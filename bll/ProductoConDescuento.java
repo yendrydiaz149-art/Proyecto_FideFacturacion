@@ -1,18 +1,17 @@
-package bll;
+package negocio;
 
 public class ProductoConDescuento extends Producto {
-    private double descuento; // porcentaje 0-100
+    private double porcentajeDescuento;
 
-    public ProductoConDescuento(String codigo, String nombre, double precio, double descuento) {
-        super(codigo, nombre, precio);
-        this.descuento = descuento;
+    public ProductoConDescuento(String id, String nombre, double precio, int stock, double porcentajeDescuento) {
+        super(id, nombre, precio, stock);
+        this.porcentajeDescuento = porcentajeDescuento;
     }
 
-    public double getDescuento() { return descuento; }
-    public void setDescuento(double descuento) { this.descuento = descuento; }
+    public double getPorcentajeDescuento() { return porcentajeDescuento; }
+    public void setPorcentajeDescuento(double porcentajeDescuento) { this.porcentajeDescuento = porcentajeDescuento; }
 
-    @Override
-    public double calcularPrecioFinal() {
-        return precio - (precio * descuento / 100);
+    public double getPrecioConDescuento() {
+        return getPrecio() - (getPrecio() * porcentajeDescuento / 100);
     }
 }
