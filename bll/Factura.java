@@ -1,4 +1,4 @@
-package negocio;
+package bll;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,4 +26,5 @@ public class Factura {
         total += detalle.getSubtotal();
     }
 }
+
 
