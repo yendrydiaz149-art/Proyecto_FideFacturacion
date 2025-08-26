@@ -1,0 +1,57 @@
+-- Crear la base de datos
+CREATE DATABASE IF NOT EXISTS sistema_ventas;
+USE sistema_ventas;
+
+-- Tabla Usuarios (Administrador, Vendedor, etc.)
+CREATE TABLE IF NOT EXISTS usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    correo VARCHAR(100) NOT NULL UNIQUE,
+    rol ENUM('Administrador', 'Vendedor') NOT NULL,
+    contrasena VARCHAR(255) NOT NULL
+);
+
+-- Tabla Clientes
+CREATE TABLE IF NOT EXISTS clientes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    correo VARCHAR(100),
+    telefono VARCHAR(20),
+    direccion VARCHAR(200)
+);
+
+-- Tabla Productos
+CREATE TABLE IF NOT EXISTS productos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    descripcion VARCHAR(255),
+    precio DECIMAL(10,2) NOT NULL,
+    stock INT NOT NULL,
+    tiene_descuento BOOLEAN DEFAULT FALSE,
+    descuento DECIMAL(5,2) DEFAULT 0.00
+);
+
+-- Tabla Facturas
+CREATE TABLE IF NOT EXISTS facturas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_cliente INT NOT NULL,
+    fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
+    total DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id)
+);
+
+-- Tabla DetalleFactura
+CREATE TABLE IF NOT EXISTS detalle_factura (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_factura INT NOT NULL,
+    id_producto INT NOT NULL,
+    cantidad INT NOT NULL,
+    precio_unitario DECIMAL(10,2) NOT NULL,
+    subtotal DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (id_factura) REFERENCES facturas(id),
+    FOREIGN KEY (id_producto) REFERENCES productos(id)
+);
+
+-- Insertar usuario administrador inicial
+INSERT INTO usuarios (nombre, correo, rol, contrasena)
+VALUES ('Administrador', 'admin@sistema.com', 'Administrador', 'admin123');
