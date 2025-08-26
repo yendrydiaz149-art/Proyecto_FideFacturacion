@@ -1,27 +1,24 @@
-package bll;
+package negocio;
 
-import java.io.Serializable;
+public class Producto {
+    private String id;
+    private String nombre;
+    private double precio;
+    private int stock;
 
-public class Producto implements Serializable {
-    protected String codigo;
-    protected String nombre;
-    protected double precio;
-
-    public Producto(String codigo, String nombre, double precio) {
-        this.codigo = codigo;
+    public Producto(String id, String nombre, double precio, int stock) {
+        this.id = id;
         this.nombre = nombre;
         this.precio = precio;
+        this.stock = stock;
     }
 
-    public String getCodigo() { return codigo; }
+    public String getId() { return id; }
     public String getNombre() { return nombre; }
     public double getPrecio() { return precio; }
+    public int getStock() { return stock; }
 
     public void setNombre(String nombre) { this.nombre = nombre; }
     public void setPrecio(double precio) { this.precio = precio; }
-
-    // Polimorfismo
-    public double calcularPrecioFinal() {
-        return precio;
-    }
+    public void setStock(int stock) { this.stock = stock; }
 }
