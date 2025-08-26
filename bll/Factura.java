@@ -1,25 +1,29 @@
 package negocio;
 
-public class Producto {
-    private String id;
-    private String nombre;
-    private double precio;
-    private int stock;
+import java.util.ArrayList;
+import java.util.List;
 
-    public Producto(String id, String nombre, double precio, int stock) {
+public class Factura {
+    private String id;
+    private Cliente cliente;
+    private List<DetalleFactura> detalles;
+    private double total;
+
+    public Factura(String id, Cliente cliente) {
         this.id = id;
-        this.nombre = nombre;
-        this.precio = precio;
-        this.stock = stock;
+        this.cliente = cliente;
+        this.detalles = new ArrayList<>();
+        this.total = 0;
     }
 
     public String getId() { return id; }
-    public String getNombre() { return nombre; }
-    public double getPrecio() { return precio; }
-    public int getStock() { return stock; }
+    public Cliente getCliente() { return cliente; }
+    public List<DetalleFactura> getDetalles() { return detalles; }
+    public double getTotal() { return total; }
 
-    public void setNombre(String nombre) { this.nombre = nombre; }
-    public void setPrecio(double precio) { this.precio = precio; }
-    public void setStock(int stock) { this.stock = stock; }
+    public void agregarDetalle(DetalleFactura detalle) {
+        detalles.add(detalle);
+        total += detalle.getSubtotal();
+    }
 }
 
