@@ -1,38 +1,25 @@
-package bll;
+package negocio;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+public class Producto {
+    private String id;
+    private String nombre;
+    private double precio;
+    private int stock;
 
-public class Factura implements Serializable {
-
-    private String numero;
-    private Cliente cliente;
-    private List<DetalleFactura> detalles;
-
-    public Factura(String numero, Cliente cliente) {
-        this.numero = numero;
-        this.cliente = cliente;
-        this.detalles = new ArrayList<>();
+    public Producto(String id, String nombre, double precio, int stock) {
+        this.id = id;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.stock = stock;
     }
 
-    public void agregarDetalle(DetalleFactura detalle) {
-        detalles.add(detalle);
-    }
+    public String getId() { return id; }
+    public String getNombre() { return nombre; }
+    public double getPrecio() { return precio; }
+    public int getStock() { return stock; }
 
-    public String getNumero() {
-        return numero;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public List<DetalleFactura> getDetalles() {
-        return detalles;
-    }
-
-    public double calcularTotal() {
-        return detalles.stream().mapToDouble(DetalleFactura::getSubtotal).sum();
-    }
+    public void setNombre(String nombre) { this.nombre = nombre; }
+    public void setPrecio(double precio) { this.precio = precio; }
+    public void setStock(int stock) { this.stock = stock; }
 }
+
