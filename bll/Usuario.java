@@ -1,6 +1,7 @@
 package bll;
 
 public class Usuario {
+
     private String id;
     private String nombre;
     private String correo;
@@ -15,16 +16,44 @@ public class Usuario {
         this.contrasena = contrasena;
     }
 
-    public String getId() { return id; }
-    public String getNombre() { return nombre; }
-    public String getCorreo() { return correo; }
-    public String getRol() { return rol; }
-    public String getContrasena() { return contrasena; }
+    public String getId() {
+        return id;
+    }
 
-    public void setNombre(String nombre) { this.nombre = nombre; }
-    public void setCorreo(String correo) { this.correo = correo; }
-    public void setRol(String rol) { this.rol = rol; }
-    public void setContrasena(String contrasena) { this.contrasena = contrasena; }
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
 }
-
 
