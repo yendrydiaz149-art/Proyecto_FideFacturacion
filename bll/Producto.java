@@ -1,4 +1,4 @@
-package negocio;
+package bll;
 
 public class Producto {
     private String id;
@@ -22,3 +22,4 @@ public class Producto {
     public void setPrecio(double precio) { this.precio = precio; }
     public void setStock(int stock) { this.stock = stock; }
 }
+
