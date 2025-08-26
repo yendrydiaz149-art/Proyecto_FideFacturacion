@@ -1,4 +1,4 @@
-package negocio;
+package bll;
 
 public class ProductoConDescuento extends Producto {
     private double porcentajeDescuento;
@@ -15,3 +15,4 @@ public class ProductoConDescuento extends Producto {
         return getPrecio() - (getPrecio() * porcentajeDescuento / 100);
     }
 }
+
